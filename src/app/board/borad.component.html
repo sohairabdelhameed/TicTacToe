@@ -1,0 +1,17 @@
+<header>
+    <h1>Tic-Tac-Toe Game</h1>
+  </header>
+  
+  <h1 class="current-player">Current Player: {{ player }}</h1>
+  <button nbButton outline status="success" class="new-game-button" (click)="newGame()">New Game</button>
+  <h2 *ngIf="winner && !draw" class="winner-text">Player {{ winner }} won the game!</h2>
+  <h2 *ngIf="draw" class="draw-message">It's a draw! The game is over.</h2>
+  
+  <main class="game-board">
+    <app-square
+      *ngFor="let val of squares; let i = index"
+      [value]="val"
+      (click)="makeMove(i)">
+    </app-square>
+  </main>
+  
